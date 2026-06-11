@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/css/style.css}">
-    <title>ブログホーム</title>
+    <title>新規作成</title>
 </head>
 <body>
+
     <header>
     <div class="logo">
     <h1>Spring</h1>
@@ -22,22 +23,19 @@
     <nav class="sidebar">
         <a href="/blogs">ホーム</a>
         <a href="/profile">プロフィール</a>
-        </nav>
+    </nav>
 
 <div class="container">
-    <p th:if="${#lists.isEmpty(blogs)}">ブログが登録されていません。</p>
+    <div class = "blogs-title"><h1>記事の新規作成</h1></div>
+    <form th:action="@{/blogs}" th:object="${blogForm}" method="POST">
+        <h3>タイトル</h3>
+        <p><input type="text" th:field="*{title}" placeholder="ブログタイトル"></p>
 
-    <div th:if="${not #lists.isEmpty(blogs)}">
-    <div th:each="blog : ${blogs}" class="blog-item">
-        <h2 th:text="${blog.title}">タイトル</h2>
-
-        <p th:text="${blog.content}">ブログ内容</p>
-
-        <a th:href="@{/article/{id}(id=${blog.id})}">記事を見る</a>
-    </div>
-    </div>
+        <h3>本文</h3>
+        <p><textarea th:field=" *{content}" id="content" placeholder="記事内容"></textarea></p>
+        <input type="submit" value="保存">
+    </form>
 </div>
-
 </div>
 </body>
 </html>

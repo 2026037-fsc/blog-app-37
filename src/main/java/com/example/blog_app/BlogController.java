@@ -1,17 +1,59 @@
 package com.example.blog_app;
 
+
+import java.util.Optional;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+
+
 
 
 
 @Controller
 public class BlogController {
 
-    @GetMapping("/")
-    public String blogs() {
+    private final BlogService blogService;
+
+    public BlogController(BlogService blogService){
+        this.blogService = blogService;
+    }
+
+    @GetMapping("/blogs")
+    public String blogs(Model model) {
+        model.addAttribute("blogs",blogService.findAll());
         return "blogs";
     }
+
+    @GetMapping("/blog/new")
+    public String newBlog(Model model) {
+        model.addAttribute("blogForm", new BlogForm());
+        return "/blog/new";
+    }
+
+    @PostMapping("/blogs")
+    public String create(BlogForm form) {
+        blogService.add(form);
+        return "redirect:/blogs";
+    }
+
+    @GetMapping("/article/{id}")
+    public String showArticle(@PathVariable Long id, Model model) {
+        Optional<Blog> blogOpt = blogService.findById(id);
+
+        if (blogOpt.isEmpty()) {
+            return "redirect:/blogs";
+        }
+
+        model.addAttribute("blog", blogOpt.get());
+        return "/article";
+    }
+    
+    
+    
     
     
 }

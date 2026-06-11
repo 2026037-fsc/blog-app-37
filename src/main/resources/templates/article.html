@@ -1,12 +1,14 @@
+<!-- 記事 -->
 <!DOCTYPE html>
 <html lang="ja" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/css/style.css}">
-    <title>ブログホーム</title>
+    <title>ブログページ</title>
 </head>
 <body>
+
     <header>
     <div class="logo">
     <h1>Spring</h1>
@@ -19,25 +21,17 @@
     <a href="/blog/new" class="post-button">投稿</a>
     </header>
 <div class="main">
-    <nav class="sidebar">
+        <nav class="sidebar">
         <a href="/blogs">ホーム</a>
         <a href="/profile">プロフィール</a>
         </nav>
 
-<div class="container">
-    <p th:if="${#lists.isEmpty(blogs)}">ブログが登録されていません。</p>
-
-    <div th:if="${not #lists.isEmpty(blogs)}">
-    <div th:each="blog : ${blogs}" class="blog-item">
-        <h2 th:text="${blog.title}">タイトル</h2>
-
-        <p th:text="${blog.content}">ブログ内容</p>
-
-        <a th:href="@{/article/{id}(id=${blog.id})}">記事を見る</a>
+    <div class="container">
+        <div class="content">
+            <h1 th:text="${blog.title}">タイトル</h1>
+            <p th:text="${blog.content}">ブログの内容</p>
+        </div>
     </div>
-    </div>
-</div>
-
-</div>
+</div>    
 </body>
 </html>

@@ -1,0 +1,146 @@
+
+body {
+    margin: 0;
+    font-family: sans-serif;
+    background-color: #fff;
+}
+
+
+header {
+    display: flex;
+    align-items: center;
+    height: 70px;
+    border-bottom: 1px solid #ccc;
+    padding: 0 20px;
+}
+
+
+.logo {
+    width: 200px;
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 36px;
+    font-weight: normal;
+}
+
+
+.search-box {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.search-box input {
+    width: 300px;
+    padding: 8px;
+    border: 1px solid #999;
+}
+
+
+.post-button {
+    text-decoration: none;
+    color: black;
+    margin-left: auto;
+}
+
+
+.main {
+    display: flex;
+}
+
+
+.sidebar {
+    width: 200px;
+    min-height: calc(100vh - 70px);
+    padding-top: 40px;
+    border-right: 1px solid #ccc;
+}
+
+.sidebar a {
+    display: block;
+    text-decoration: none;
+    color: black;
+    padding: 15px 40px;
+}
+
+
+.container {
+    flex: 1;
+    padding: 40px;
+}
+
+
+.blog-item {
+    width: 600px;
+    border: 1px solid #999;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.blog-item h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.blog-item p {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+
+.blog-item a {
+    text-decoration: none;
+    color: #0077cc;
+}
+
+
+.blogs-title {
+    margin-bottom: 30px;
+}
+
+.blogs-title h1 {
+    font-size: 24px;
+    margin: 0;
+}
+
+.container form {
+    max-width: 700px;
+}
+
+.container h3 {
+    margin-bottom: 8px;
+    font-size: 18px;
+}
+
+.container input[type="text"] {
+    width: 100%;
+    height: 40px;
+    padding: 0 10px;
+    border: 1px solid #999;
+    box-sizing: border-box;
+    margin-bottom: 30px;
+}
+
+.container textarea {
+    width: 100%;
+    height: 220px;
+    padding: 10px;
+    border: 1px solid #999;
+    resize: none;
+    box-sizing: border-box;
+    margin-bottom: 30px;
+}
+
+.container input[type="submit"] {
+    width: 80px;
+    height: 40px;
+    border: 1px solid #999;
+    background-color: white;
+    cursor: pointer;
+}
+
+.container input[type="submit"]:hover {
+    background-color: #f3f3f3;
+}
